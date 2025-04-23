@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.entity.Contact;
 import com.example.demo.form.ContactForm;
-import com.example.demo.repository.ContactRepository;
+import com.example.demo.service.ContactService;
 
 @Controller
 public class ContactController {
     @Autowired
-    private ContactRepository contactRepository;
+    private ContactService contactService;
 
     @GetMapping("/contact")
     public String contact(Model model) {
@@ -67,7 +67,7 @@ public class ContactController {
         contact.setContactType(contactForm.getContactType());
         contact.setBody(contactForm.getBody());
 
-        contactRepository.save(contact);
+        contactService.saveContact(contactForm);
 
         return "redirect:/contact/complete";
     }
