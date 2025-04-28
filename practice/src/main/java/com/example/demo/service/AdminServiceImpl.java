@@ -1,7 +1,6 @@
 package com.example.demo.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entity.Admin;
@@ -21,8 +20,7 @@ public class AdminServiceImpl implements AdminService {
         admin.setFirstName(form.getFirstName());
         admin.setEmail(form.getEmail());
 
-        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        admin.setPassword(encoder.encode(form.getPassword()));
+        admin.setPassword(form.getPassword());
 
         adminRepository.save(admin);
     }

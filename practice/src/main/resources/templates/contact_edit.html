@@ -24,5 +24,8 @@
     <p>
         <a th:href="@{/admin/contacts/{id}(id=${contact.id})}">戻る</a>
     </p>
+	<form th:action="@{/logout}" method="post">
+	    <button type="submit">ログアウト</button>
+	</form>
 </body>
 </html>
