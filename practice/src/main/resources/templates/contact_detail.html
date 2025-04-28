@@ -28,5 +28,8 @@
 	<form th:action="@{/admin/contacts/{id}/delete(id=${contact.id})}" method="post" style="display: inline;">
 		<button type="submit" onclick="return confirm('本当に削除しますか');">削除</button>
 	</form>
+	<form th:action="@{/logout}" method="post">
+	    <button type="submit">ログアウト</button>
+	</form>
 </body>
 </html>
